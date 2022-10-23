@@ -105,14 +105,13 @@ module-margin-left = 1
 module-margin-right = 1
 
 ;https://github.com/jaagr/polybar/wiki/Fonts
-font-0 = "SauceCodePro Nerd Font:size=11:weight=semibold;3"
-font-1 = "Noto Sans Mono:size=10;0"
-font-2 = "FontAwesome:size=10;0"
-#font-4 = "Noto Sans:size=14;0"
+font-0 = "Iosevka Nerd Font:size=10;4"
+font-1 = "Iosevka Nerd Font:size=10;3"
+font-2 = "feather:size=12;3"
 
-modules-left = rofi break changebackground break firefox discord telegram mintstick screenshot gsimplecal insync simplescreenrecorder vivaldi
-modules-center = i3
-modules-right = date break
+modules-left = launcher sep i3 sep cpu2 memory 
+modules-center = date
+modules-right = discord telegram screenshot pamac sep volume sep sysmenu
 
 ;dim-value = 1.0
 
@@ -494,9 +493,9 @@ type = internal/cpu
 interval = 1
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
-format-prefix = "  "
+;format-prefix = "  "
 format-prefix-foreground = #cd1f3f
-format-underline = #cd1f3f
+;format-underline = #cd1f3f
 
 label-font = 3
 
@@ -837,6 +836,133 @@ format-prefix = "  "
 
 ################################################################################
 
+[module/launcher]
+type = custom/text
+content = 
+
+; "content" has the same properties as "format-NAME"
+content-foreground = ${colors.foreground}
+content-background = ${colors.background}
+;content-padding = 2
+
+; "click-(left|middle|right)" will be executed using "/usr/bin/env sh -c $COMMAND"
+click-left = ~/.config/i3/polybar/scripts/launcher.sh &
+;;click-middle = ~/.config/i3/polybar/scripts/launcher-full
+click-right = ~/.config/i3/polybar/scripts/style-switch.sh &
+
+; "scroll-(up|down)" will be executed using "/usr/bin/env sh -c $COMMAND"
+;;scroll-up = ~/.config/i3/polybar/scripts/launcher.sh &
+;;scroll-down = ~/.config/i3/polybar/scripts/style-switch.sh &
+
+################################################################################
+
+[module/launcher1]
+type = custom/text
+content = 
+
+; "content" has the same properties as "format-NAME"
+content-background = ${colors.background}
+content-foreground = ${colors.foreground}
+content-padding = 2
+
+click-left = xfce4-appfinder
+click-middle = xfce4-appfinder
+click-right = rofi -show drun
+
+################################################################################
+
+[module/launcher2]
+type = custom/menu
+
+; If true, <label-toggle> will be to the left of the menu items (default).
+; If false, it will be on the right of all the items.
+expand-right = true
+
+; "menu-LEVEL-N" has the same properties as "label-NAME" with
+; the additional "exec" property
+;
+; Available exec commands:
+;   menu-open-LEVEL
+;   menu-close
+; Other commands will be executed using "/usr/bin/env sh -c $COMMAND"
+menu-0-0 =  Menu
+menu-0-0-exec = ~/.config/i3/polybar/scripts/launcher.sh &
+menu-0-1 =  Files
+menu-0-1-exec = thunar &
+menu-0-2 =  Terminal
+menu-0-2-exec = alacritty &
+menu-0-3 =  Browser
+menu-0-3-exec = firefox &
+
+; Available tags:
+;   <label-toggle> (default) - gets replaced with <label-(open|close)>
+;   <menu> (default)
+; Note that if you use <label-toggle> you must also include
+; the definition for <label-open>
+
+;format = <label-toggle> <menu>
+format-background = ${colors.background}
+format-foreground = ${colors.foreground}
+
+content-foreground = ${colors.foreground}
+content-background = ${colors.background}
+format-padding = 2
+
+label-open = "  "
+label-close = 
+
+; Optional item separator
+; Default: none
+label-separator = " | "
+
+################################################################################
+
+[module/launcher3]
+type = custom/menu
+
+; If true, <label-toggle> will be to the left of the menu items (default).
+; If false, it will be on the right of all the items.
+expand-right = true
+
+; "menu-LEVEL-N" has the same properties as "label-NAME" with
+; the additional "exec" property
+;
+; Available exec commands:
+;   menu-open-LEVEL
+;   menu-close
+; Other commands will be executed using "/usr/bin/env sh -c $COMMAND"
+menu-0-0 = Menu
+menu-0-0-exec = ~/.config/i3/polybar/scripts/launcher.sh &
+menu-0-1 = Files
+menu-0-1-exec = thunar &
+menu-0-2 = Terminal
+menu-0-2-exec = alacritty &
+menu-0-3 = Browser
+menu-0-3-exec = firefox &
+
+; Available tags:
+;   <label-toggle> (default) - gets replaced with <label-(open|close)>
+;   <menu> (default)
+; Note that if you use <label-toggle> you must also include
+; the definition for <label-open>
+
+;format = <label-toggle> <menu>
+format-background = ${colors.background}
+format-foreground = ${colors.foreground}
+
+content-background = ${colors.background}
+content-foreground = ${colors.foreground}
+format-padding = 2
+
+label-open = 
+label-close = 
+
+; Optional item separator
+; Default: none
+label-separator = " | "
+
+################################################################################
+
 [module/load-average]
 type = custom/script
 exec = uptime | grep -ohe 'load average[s:][: ].*' | awk '{ print $3" "$4" "$5"," }' | sed 's/,//g'
@@ -1158,7 +1284,7 @@ click-right = gnome-screenshot -i &
 [module/sep]
 ; alternative separator
 type = custom/text
-content = 
+content = |
 content-foreground = ${colors.foreground}
 content-background =  ${colors.background}
 format-foreground = ${colors.foreground}
@@ -1243,7 +1369,8 @@ click-right = spotify
 [module/sysmenu]
 type = custom/text
 content = "  襤  "
-content-foreground = ${color.foreground}
+content-foreground = ${colors.foreground}
+content-background = ${colors.background}
 click-left = archlinux-logout
 click-right = archlinux-logout
 
