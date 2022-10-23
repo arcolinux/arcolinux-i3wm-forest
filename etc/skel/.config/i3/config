@@ -692,7 +692,7 @@ bindsym control+mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
 ##START THEMING WM
 # Theme name : ArcoLinux Default
 
-# Window color settings  #d65d29
+# Window color settings
 # class                 border  backgr. text    indicator
 client.focused          #ba68c8 #6790EB #e5e5e5 #6790EB
 client.unfocused        #222222 #222222 #aaaaaa #222222
