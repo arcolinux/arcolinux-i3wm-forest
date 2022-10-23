@@ -38,16 +38,27 @@ format-margin =
 format-offset =
 
 [colors]
-background = #60000000
-foreground = #eeeeee
-foreground-active = #6790EB
-occupied = #cccccc
-occupied-active = #b3c7f5
-active = #5e81ac
-alert = #d08770
-volume-min = #a3be8c
-volume-med = #ebcb8b
-volume-max = #bf616a
+background = #212B30
+foreground = #C4C7C5
+sep = #3F5360
+
+white = #FFFFFF
+black = #000000
+red = #EC7875
+pink = #EC407A
+purple = #BA68C8
+blue = #42A5F5
+cyan = #4DD0E1
+teal = #00B19F
+green = #61C766
+lime = #B9C244
+yellow = #FDD835
+amber = #FBC02D
+orange = #E57C46
+brown = #AC8476
+indigo = #6C77BB
+gray = #9E9E9E
+blue-gray = #6D8895
 
 ################################################################################
 ################################################################################
@@ -140,102 +151,6 @@ double-click-right =
 ; - ns-resize : Up and down arrows, can be used to indicate scrolling
 cursor-click =
 cursor-scroll =
-
-
-################################################################################
-################################################################################
-############                         MAINBAR-I3-EXTRA               ############
-################################################################################
-################################################################################
-
-[bar/mainbar-i3-extra]
-;https://github.com/jaagr/polybar/wiki/Configuration
-
-monitor = ${env:MONITOR}
-;monitor-fallback = HDMI1
-monitor-strict = false
-override-redirect = false
-bottom = true
-fixed-center = true
-width = 100%
-height = 30
-;offset-x = 1%
-;offset-y = 1%
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-; Background gradient (vertical steps)
-;   background-[0-9]+ = #aarrggbb
-;background-0 =
-
-radius = 0.0
-line-size = 2
-line-color = #000000
-
-border-size = 0
-;border-left-size = 25
-;border-right-size = 25
-;border-top-size = 0
-;border-bottom-size = 25
-border-color = #000000
-
-padding-left = 1
-padding-right = 1
-
-module-margin-left = 1
-module-margin-right = 1
-
-;https://github.com/jaagr/polybar/wiki/Fonts
-font-0 = "SauceCodePro Nerd Font:size=11:weight=semibold;3"
-font-1 = "Noto Sans Mono:size=10;0"
-font-2 = "FontAwesome:size=10;0"
-#font-4 = "Noto Sans:size=14;0"
-
-modules-left = kernel
-modules-center = memory4
-modules-right = arch-updates powermenu
-
-separator = |
-
-;dim-value = 1.0
-
-;tray-detached = false
-;tray-offset-x = 0
-;tray-offset-y = 0
-;tray-padding = 2
-;tray-maxsize = 20
-;tray-scale = 1.0
-;tray-position = right
-;tray-background = ${colors.background}
-
-#i3: Make the bar appear below windows
-;wm-restack = i3
-;override-redirect = true
-
-; Enable support for inter-process messaging
-; See the Messaging wiki page for more details.
-enable-ipc = true
-
-; Fallback click handlers that will be called if
-; there's no matching module handler found.
-click-left =
-click-middle =
-click-right =
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
-double-click-left =
-double-click-middle =
-double-click-right =
-
-; Requires polybar to be built with xcursor support (xcb-util-cursor)
-; Possible values are:
-; - default   : The default pointer as before, can also be an empty string (default)
-; - pointer   : Typically in the form of a hand
-; - ns-resize : Up and down arrows, can be used to indicate scrolling
-cursor-click =
-cursor-scroll =
-
 
 ################################################################################
 ################################################################################
