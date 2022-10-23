@@ -38,7 +38,7 @@ format-margin =
 format-offset =
 
 [colors]
-background = #212B30
+background = #60000000
 foreground = #C4C7C5
 sep = #3F5360
 
