@@ -908,7 +908,7 @@ format-prefix = "  "
 
 [module/launcher]
 type = custom/text
-content = 
+content = 
 
 ; "content" has the same properties as "format-NAME"
 content-foreground = ${colors.foreground}
